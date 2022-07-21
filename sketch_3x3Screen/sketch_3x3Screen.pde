@@ -1,9 +1,11 @@
 //Global Variables
-color black = #000000;
+color black = #000000, red = #DE3131, purple = #9831DE, resetWhite = #FFFFFF; //black is a NightMode friendly color as it does not have any blue color in it
 color backgroundColor;
 float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xOrMe, yOrMe, OrMeWidth, OrMeHeight;
 int xCenter, yCenter;
-String buttonText1, buttonText2;
+String buttonText1 = "Click Me", buttonText2 = "Or Me";
+PFont buttonText1Font, buttonText2Font;
+int buttonText1Size, buttonText2Size;
 
 //PFont 
 
@@ -22,7 +24,7 @@ void setup() {
     println("CANVAS is good on your display.");
   };
   //
-  
+
   //Display Orientation
   String ls = "Landscape or Square", p = "Portrait", DO = "Display Orientation", instruct = "Flip your screen";
   //String orientation = () ? true : false; //This is a Trenary operator to populate a variable 
@@ -36,7 +38,7 @@ void setup() {
     println(instruct);
   };
   //
-  
+
   //Population using appWidth and appHeight
 
 
@@ -63,29 +65,44 @@ void setup() {
   yOrMe = yCenter - yCenter*2/3;
   OrMeWidth = xCenter/2;
   OrMeHeight = yCenter/2;
-  
-  
+
+
   //text stuff
-  
-  
-  
-  
+  String[] fontList = PFont.list();
+  buttonText1Font = createFont("NiagaraSolid-Reg-48", 55);
+  buttonText2Font = createFont("VladimirScript-48", 55);
 };
 
 void draw() {
   backgroundColor = black;
   background(backgroundColor);
 
+  //Button 1
+  fill(red);
   rect(xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);
+  textAlign(CENTER, CENTER);
+  buttonText1Size = 50;
+  textFont(buttonText1Font, buttonText1Size);
   text(buttonText1, xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);//'Click me' button text
+  fill(resetWhite);
+  //rect(); //Button 1
+
+  //Button2
+  fill(red);
   rect(xOrMe, yOrMe, OrMeWidth, OrMeHeight);
-  text(buttonText2);//'Or me' button text
+  text(buttonText2, xOrMe, yOrMe, OrMeWidth, OrMeHeight);//'Or me' button text
+  fill(resetWhite);  
+  //ellipse(); //Button2
   
-  rect(); //Button 1
-  ellipse(); //Button2
+  
+  
+  
 };
 
 void keyPressed() {
+  //if (mouseX > xClickMe && mouse) {
+  //} else {
+  //};
 };
 
 void mousePressed() {
