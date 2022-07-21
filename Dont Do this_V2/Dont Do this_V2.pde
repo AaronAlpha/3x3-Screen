@@ -118,7 +118,7 @@ void draw() {
   //textFont(buttonText2Font, buttonText2Size);
   //fill(resetWhite);
   //text(buttonText2, xOrMe, yOrMe, OrMeWidth, OrMeHeight);//'Or me' button text
-  //if (ellipseOn == true) ellipse(xOrMeButton, yOrMeButton, OrMeWidth, OrMeWidth); //Button2
+  if (ellipseOn == true) ellipse(xOrMeButton, yOrMeButton, OrMeWidth, OrMeWidth); //Button2
 };
 
 void keyPressed() {
@@ -126,13 +126,14 @@ void keyPressed() {
 
 
 void mousePressed() {
-  //rectOn = false;
-  //ellipseOn = false;
+
   if (mouseX >= xClickMe && mouseX <= xClickMe + ClickMeWidth && mouseY >= yClickMe && mouseY <= yClickMe + ClickMeHeight) {
-    if (rectOn = true) {
-      rectOn = false;      
+    if (rectOn == false) {
+      rectOn = true;
+      ellipseOn = false;
     } else {
-      rectOn = true;      
+      rectOn = false;
+      ellipseOn = true;
     }
   }; //Button 1
 
