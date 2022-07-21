@@ -3,6 +3,7 @@ color black = #000000;
 color backgroundColor;
 float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xOrMe, yOrMe, OrMeWidth, OrMeHeight;
 int xCenter, yCenter;
+String buttonText1, buttonText2;
 
 //PFont 
 
@@ -32,7 +33,7 @@ void setup() {
   } else {
     appWidth *= 0; //is an assignment operator, works like -> appWidth = appWidth * 0
     appHeight *= 0; //is an assignment operator, works like -> appHeight = appHeight * 0
-    println(instruct)
+    println(instruct);
   };
   //
   
@@ -62,6 +63,13 @@ void setup() {
   yOrMe = yCenter - yCenter*2/3;
   OrMeWidth = xCenter/2;
   OrMeHeight = yCenter/2;
+  
+  
+  //text stuff
+  
+  
+  
+  
 };
 
 void draw() {
@@ -69,7 +77,12 @@ void draw() {
   background(backgroundColor);
 
   rect(xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);
+  text(buttonText1, xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);//'Click me' button text
   rect(xOrMe, yOrMe, OrMeWidth, OrMeHeight);
+  text(buttonText2);//'Or me' button text
+  
+  rect(); //Button 1
+  ellipse(); //Button2
 };
 
 void keyPressed() {
