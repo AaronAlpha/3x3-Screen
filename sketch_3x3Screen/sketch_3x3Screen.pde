@@ -1,11 +1,13 @@
 //Global Variables
 color black = #000000, red = #DE3131, purple = #9831DE, resetWhite = #FFFFFF; //black is a NightMode friendly color as it does not have any blue color in it
 color backgroundColor;
-float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xOrMe, yOrMe, OrMeWidth, OrMeHeight;
+float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xClickMeButton, yClickMeButton;
+float xOrMe, yOrMe, OrMeWidth, OrMeHeight, xOrMeButton, yOrMeButton;
 int xCenter, yCenter;
 String buttonText1 = "Click Me", buttonText2 = "Or Me";
 PFont buttonText1Font, buttonText2Font;
 int buttonText1Size, buttonText2Size;
+boolean rectOn = false, ellipseOn = false;
 
 //PFont 
 
@@ -57,6 +59,8 @@ void setup() {
   yClickMe = yCenter - yCenter*2/3;
   ClickMeWidth = xCenter/2;
   ClickMeHeight = yCenter/2;
+  xClickMeButton = xCenter*1/4;
+  yClickMeButton = yCenter + yCenter*1/3;
   //End Population
 
 
@@ -65,12 +69,16 @@ void setup() {
   yOrMe = yCenter - yCenter*2/3;
   OrMeWidth = xCenter/2;
   OrMeHeight = yCenter/2;
+  xOrMeButton = xCenter + xCenter*1/4;
+  yOrMeButton = yCenter + yCenter*1/3;
+  //End Population
 
 
   //text stuff
   String[] fontList = PFont.list();
-  buttonText1Font = createFont("NiagaraSolid-Reg-48", 55);
-  buttonText2Font = createFont("VladimirScript-48", 55);
+  //printArray(fontList);
+  buttonText1Font = createFont("Niagara Solid", 55);
+  buttonText2Font = createFont("Niagara Solid", 55);
 };
 
 void draw() {
@@ -83,29 +91,38 @@ void draw() {
   textAlign(CENTER, CENTER);
   buttonText1Size = 50;
   textFont(buttonText1Font, buttonText1Size);
-  text(buttonText1, xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);//'Click me' button text
   fill(resetWhite);
-  //rect(); //Button 1
+  text(buttonText1, xClickMe, yClickMe, ClickMeWidth, ClickMeHeight);//'Click me' button text
+  if (rectOn == true) rect(xClickMeButton, yClickMeButton, ClickMeWidth, ClickMeHeight);
+  
 
   //Button2
   fill(red);
   rect(xOrMe, yOrMe, OrMeWidth, OrMeHeight);
+  textAlign(CENTER, CENTER);
+  buttonText2Size = 50;
+  textFont(buttonText2Font, buttonText2Size);
+  fill(resetWhite);
   text(buttonText2, xOrMe, yOrMe, OrMeWidth, OrMeHeight);//'Or me' button text
-  fill(resetWhite);  
-  //ellipse(); //Button2
+  if (ellipseOn == true) ellipse(xOrMeButton, yOrMeButton, OrMeWidth, OrMeWidth); //Button2
   
   
   
   
 };
 
-void keyPressed() {
-  //if (mouseX > xClickMe && mouse) {
-  //} else {
-  //};
+void keyPressed() {  
 };
+
 
 void mousePressed() {
+  rectOn = false;
+  ellipseOn = false;
+  if (mouseX > xClickMe && mouseX < xClickMe + ClickMeWidth && mouseY > yClickMe && mouseY < yClickMe + ClickMeHeight) rectOn = true; //Button 1
+  
+  if (mouseX > xOrMe && mouseX < xOrMe + OrMeWidth && mouseY > yOrMe && mouseY < yOrMe + OrMeHeight) ellipseOn = true; //Button 1
+
+  
 } 
 ;
 //End MAIN Program
