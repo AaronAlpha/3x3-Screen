@@ -4,6 +4,7 @@ color backgroundColor;
 float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xOrMe, yOrMe, OrMeWidth, OrMeHeight;
 int xCenter, yCenter;
 
+//PFont 
 
 
 void setup() {
@@ -17,11 +18,26 @@ void setup() {
     appWidth = displayWidth; //Note: displayWidth renders the current monitors width
     appHeight = displayHeight; //Note: displayHeight renders the current monitors height
   } else {
+    println("CANVAS is good on your display.");
   };
+  //
   
   //Display Orientation
-  String ls = "Landscape or Square", p = "Portrait" , instruct = "Flip your screen";
+  String ls = "Landscape or Square", p = "Portrait", DO = "Display Orientation", instruct = "Flip your screen";
+  //String orientation = () ? true : false; //This is a Trenary operator to populate a variable 
+  String orientation = (appWidth >= appHeight) ? ls : p; 
+  println(DO, orientation);
+  if (orientation  == ls) {
+    println("Good to Go");
+  } else {
+    appWidth *= 0; //is an assignment operator, works like -> appWidth = appWidth * 0
+    appHeight *= 0; //is an assignment operator, works like -> appHeight = appHeight * 0
+    println(instruct)
+  };
+  //
   
+  //Population using appWidth and appHeight
+
 
 
   xCenter = width/2;
