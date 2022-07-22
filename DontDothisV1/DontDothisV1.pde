@@ -1,4 +1,4 @@
-//Global Variables
+  //Global Variables
 color black = #000000, red = #DE3131, purple = #9831DE, resetWhite = #FFFFFF; //black is a NightMode friendly color as it does not have any blue color in it
 color backgroundColor, buttonFill1, buttonFill2;
 float xClickMe, yClickMe, ClickMeWidth, ClickMeHeight, xClickMeButton, yClickMeButton;
